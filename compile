@@ -117,15 +117,15 @@ BPMDJ_OBJECTS = $(ACTIVE_OBJECTS) tags.o about.moc.o capacity.o \
 
 bpmplay: $(BPMPLAY)
 	@echo " [link] "$@
-	@$(LINK) $(BPMPLAY) -o bpmplay
+	@$(CPP) $(BPMPLAY) -o bpmplay $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)
 
 bpmcount: $(BPMCOUNT_OBJECTS)
-	@echo " [link] "$@
-	@$(LINK) $(BPMCOUNT_OBJECTS) -o bpmcount
-
+	@echo " [link] "$@ 
+	@$(CPP) $(BPMCOUNT_OBJECTS) -o bpmcount $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)
+	
 bos: bos.o lock.o overseer.o process.o
 	@echo " [link] "$@
-	@$(LINK) $^ -o bos
+	@$(CPP) $^ -o bos  $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)
 
 bpm.a:  $(BPM_LIB)
 	@echo "   [ar] "$@
@@ -133,7 +133,7 @@ bpm.a:  $(BPM_LIB)
 
 bpmdj: $(BPMDJ_OBJECTS) 
 	@echo " [link] "$@
-	@$(LINK) $(BPMDJ_OBJECTS) -o bpmdj
+	@$(CPP) $(BPMDJ_OBJECTS) -o bpmdj $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)
 
 profile-clock: profile-clock.o
 	@echo " [link] "$@
@@ -141,13 +141,13 @@ profile-clock: profile-clock.o
 
 idx2txt: idx2txt.o Data/data.a
 	@echo " [link] "$@
-	@$(LINK)  $^ -o idx2txt
+	@$(CPP) -Xlinker --no-as-needed $^ -o $@  $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS) 
 
 index-demo: index-demo.o index.o spectrum-type.o sample4-type.o power-type.o \
 	tempo-type.o memory.o Data/data.a common.o song-information.o capacity.o \
 	song-information.moc.o info.o files.o $(EFENCE_OBJECTS)
 	@echo " [link] "$@
-	@$(LINK)  $^ -o $@
+	@$(CPP)  $^ -o $@ $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)
 
 MERGER_OBJECTS = bpmmerge.o no-overseer.o process.o index.o common.o \
 	scripts.o song-information.o song-information.moc.o capacity.o \
@@ -157,4 +157,4 @@ MERGER_OBJECTS = bpmmerge.o no-overseer.o process.o index.o common.o \
 
 bpmmerge: $(MERGER_OBJECTS)
 	@echo " [link] "$@
-	@$(LINK)  $(MERGER_OBJECTS) -o bpmmerge
+	@$(CPP)  $(MERGER_OBJECTS) -o bpmmerge $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)

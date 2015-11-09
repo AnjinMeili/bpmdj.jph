@@ -1,6 +1,6 @@
 /****
  Hierarchical Data Objects
- Copyright (C) 2005-2011 Werner Van Belle
+ Copyright (C) 2005-2012 Werner Van Belle
  http://flow.yellowcouch.org/data/
 
  This program is free software; you can redistribute it and/or modify
@@ -17,10 +17,6 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ****/
-#ifndef __loaded__doc_cpp__
-#define __loaded__doc_cpp__
-using namespace std;
-#line 1 "doc.c++"
 #include <map>
 #include <iostream>
 #include <fstream>
@@ -32,6 +28,8 @@ using namespace std;
 #include "do-grammar.h"
 #include "do-syntax.h"
 #include "do-printer.h"
+using namespace std;
+
 outputbuf object;
 outputbuf methods;
 outputbuf meta;
@@ -69,7 +67,7 @@ int main(int argc,char* argv[])
   ofstream out(ofn);
   out << "/****\n"
     "Data Object compiled file\n"
-    "Copyright (C) 2006-2011 Werner Van Belle\n"
+    "Copyright (C) 2006-2012 Werner Van Belle\n"
     "Do not change. Changes might be lost\n"
     "------------------------------------------\n"
     "\n"
@@ -132,4 +130,3 @@ int main(int argc,char* argv[])
   out.close();
   exit(0);
 }
-#endif // __loaded__doc_cpp__

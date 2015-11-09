@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -861,6 +861,17 @@ DECLARE template <class Type2> void SIO::readSamples
   munmap(data,map_length);
 }
 
+template <class type> 
+type find_abs_max(type * data, long l)
+{
+  if (l==0) return 0;
+  type m = data[0];
+  for(long i = 0 ; i < l ; i ++)
+    if (fabs(data[i])>m)
+      m=fabs(data[i]);
+  return m;
+}
+
 /**
  * These should be removed in the future
  */
@@ -871,17 +882,6 @@ type normalize_abs_max(type * data, long l)
   if (m>0)
     for(long i = 0 ; i < l ; i ++)
       data[i]/=m;
-  return m;
-}
-
-template <class type> 
-type find_abs_max(type * data, long l)
-{
-  if (l==0) return 0;
-  type m = data[0];
-  for(long i = 0 ; i < l ; i ++)
-    if (fabs(data[i])>m)
-      m=fabs(data[i]);
   return m;
 }
 #endif // __loaded__signals_h__

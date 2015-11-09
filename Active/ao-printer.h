@@ -1,6 +1,6 @@
 /****
  Active Objects v4.3
- Copyright (C) 2006-2011 Werner Van Belle
+ Copyright (C) 2006-2012 Werner Van Belle
  http://active.yellowcouch.org/
 
  This program is free software; you can redistribute it and/or modify

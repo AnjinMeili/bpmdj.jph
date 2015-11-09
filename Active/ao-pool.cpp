@@ -1,6 +1,6 @@
 /****
  Active Objects v4.3
- Copyright (C) 2006-2011 Werner Van Belle
+ Copyright (C) 2006-2012 Werner Van Belle
  http://active.yellowcouch.org/
 
  This program is free software; you can redistribute it and/or modify
@@ -20,9 +20,9 @@
 #ifndef __loaded__ao_pool_cpp__
 #define __loaded__ao_pool_cpp__
 using namespace std;
-#line 1 "ao-pool.c++"
 #include <cstdio>
 #include <iostream>
+#include <unistd.h>
 #include "ao-pool.h"
 #include "ao-tracker.h"
 #include "ao-scheduler.h"

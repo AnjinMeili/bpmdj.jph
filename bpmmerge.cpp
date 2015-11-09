@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -47,7 +47,7 @@ PlayerConfig * config;
  *-------------------------------------------*/
 void options_failure(const char* err)
 {
-  cout << "BpmDj Merger v"VERSION", Copyright (c) 2000-2010 Werner Van Belle\n";
+  cout << "BpmDj Merger v"VERSION", Copyright (c) 2000-2012 Werner Van Belle\n";
   cout << 
 "This software is distributed under the GPL2 license. See copyright.txt\n\n"
 "Usage:  bpmmerge <options> [old-song] new-song\n\n"

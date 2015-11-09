@@ -1,6 +1,6 @@
 /****
  Active Objects v4.3
- Copyright (C) 2006-2011 Werner Van Belle
+ Copyright (C) 2006-2012 Werner Van Belle
  http://active.yellowcouch.org/
 
  This program is free software; you can redistribute it and/or modify
@@ -20,7 +20,6 @@
 #ifndef __loaded__lock_cpp__
 #define __loaded__lock_cpp__
 using namespace std;
-#line 1 "lock.c++"
 #include <string>
 #include <pthread.h>
 #include <stdlib.h>
@@ -29,6 +28,7 @@ using namespace std;
 #include <queue>
 #include <time.h>
 #include <iostream>
+#include <unistd.h>
 #include "lock.h"
 
 bool Lock::try_lock(string w)

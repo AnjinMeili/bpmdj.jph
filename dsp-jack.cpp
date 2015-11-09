@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -30,6 +30,7 @@ using namespace std;
 #include <qstring.h>
 #include <sched.h>
 #include <set>
+#include <unistd.h>
 #include "dsp-jack.h"
 #include "player-core.h"
 #include "version.h"

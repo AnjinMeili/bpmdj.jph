@@ -1,5 +1,4 @@
 include defines
-LINK = $(CPP) $(LDFLAGS) $(QT_LIBRARY_PATH) $(QT_LIBS)
 
 %.o: %.cpp
 	@echo "  [cpp] "$@
@@ -41,7 +40,7 @@ ao-syntax.cpp: ao-syntax.y ao-lexer.h
 
 aoc: ao-syntax.o ao-lexer.o aoc.o sao-printer.o
 	@echo "  [cpp] "$@
-	@g++ $^ -o $@
+	@$(CPP) $^ -o $@
 
 ao-pool.cpp: ao-tracker.h
 
@@ -54,4 +53,4 @@ demo1.cpp: demo1.h
 
 demo1: demo1.o lock.o ao-pool.o ao-tracker.o ao-scheduler.o
 	@echo " [link] "$@
-	@g++ $^ -o $@ -lpthread
+	@$(CPP) $^ -o $@ -lpthread

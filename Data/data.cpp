@@ -1,6 +1,6 @@
 /****
  Hierarchical Data Objects
- Copyright (C) 2005-2011 Werner Van Belle
+ Copyright (C) 2005-2012 Werner Van Belle
  http://flow.yellowcouch.org/data/
 
  This program is free software; you can redistribute it and/or modify
@@ -17,10 +17,8 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ****/
-#ifndef __loaded__data_cpp__
-#define __loaded__data_cpp__
 using namespace std;
-#line 1 "data.c++"
+#include <unistd.h>
 #include "data.h"
 #include "null.h"
 #include "numbers.h"
@@ -188,4 +186,3 @@ void Data::setField(QString s, Data v)
    assert(content);
    content->setField(s,v);
 }
-#endif // __loaded__data_cpp__

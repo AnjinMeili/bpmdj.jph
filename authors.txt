@@ -1,18 +1,15 @@
 BpmDj: Free Dj Tools
-Copyright (C) 2001-2011 Werner Van Belle
+Copyright (C) 2001-2012 Werner Van Belle
 ========================================
 
-Active
-------
+Passive
+-------
 Werner Van Belle <werner@yellowcouch.org>
   Created the project
 Bernard Fortz <bernard.fortz@gmail.com>
   JACK support, Midi bindings, Gentoo packaging, External clock
 Ewald Van Belle <bloody.middlefinger@yellowcouch.org>
   RPM Packaging
-
-Passive
--------
 Toni Graffy <oc2pus@arcor.de>
   Suse packaging
 F. Murtagh <murtagh@scivax.stsci.edu>

@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -55,11 +55,11 @@ using namespace std;
 template float8 normalize_abs_max<float8>(float8*, long);
 template float8 find_abs_max<float8>(float8*, long);
 
-#define WITH_PLOT
+//#define WITH_PLOT
 int main(int argc, char *argv[])
 {
   QApplication app(argc,argv);
-  printf("bpmcount v"VERSION" (c) Werner Van Belle 2000-2011\n");
+  printf("bpmcount v"VERSION" (c) Werner Van Belle 2000-2012\n");
   printf("http://werner.yellowcouch.org/Papers/bpm10/\n");
   printf("-----------------------------------------------------------\n");
   

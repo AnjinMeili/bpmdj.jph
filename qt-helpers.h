@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -110,9 +110,11 @@ T* findOneItem(QTreeWidget* lst, QString text, int pos)
 {
   assert(lst);
   QList<QTreeWidgetItem*> items=lst->findItems(text,Qt::MatchExactly,pos);
+#ifndef NDEBUG
   int l = items.count();
   assert(l==1);
   assert(items[0]);
+#endif
   return dynamic_cast<T*>(items[0]);
 }
 

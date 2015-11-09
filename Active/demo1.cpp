@@ -1,6 +1,6 @@
 /****
  Active Objects v4.3
- Copyright (C) 2006-2011 Werner Van Belle
+ Copyright (C) 2006-2012 Werner Van Belle
  http://active.yellowcouch.org/
 
  This program is free software; you can redistribute it and/or modify
@@ -17,11 +17,9 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ****/
-#ifndef __loaded__demo1_cpp__
-#define __loaded__demo1_cpp__
 using namespace std;
-#line 1 "demo1.c++"
 #define TRACE_MESSAGES
+#include <unistd.h>
 #include "demo1.h"
 
 elementResult ActiveDemoSender::startSending(DemoReceiver* recv, int a)
@@ -49,4 +47,3 @@ int main(int, char* [])
   sender.startSending(&recv,100);
   sleep(10);
 }
-#endif // __loaded__demo1_cpp__

@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -16,16 +16,12 @@
 
  See the authors.txt for a full list of people involved.
 ****/
-#ifndef __loaded__idx2txt_cpp__
-#define __loaded__idx2txt_cpp__
-using namespace std;
+#include "Data/om-data.h"
 #include <cstdio>
-#include "Data/data.h"
-#include "Data/data-io.h"
+using namespace std;
 
 int main(int argc, char* argv[])
 {
   Data t=DataBinner::read_file(argv[1]);
   DataTexter::write(t,stdout);
 }
-#endif // __loaded__idx2txt_cpp__

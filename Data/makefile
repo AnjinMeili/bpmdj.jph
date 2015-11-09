@@ -1,13 +1,13 @@
 include defines
-LINK = $(CPP) $(LDFLAGS) $(QT_LIBRARY_PATH) $(QT_LIBS)
+LINKFLAGS = $(LDFLAGS) $(QT_LIBRARY_PATH) $(QT_LIBS)
 
 %.o: %.cpp
 	@echo "  [cpp] "$@
 	@$(CPP) $(CFLAGS) $(QT_INCLUDE_PATH) -o $@ -c $<
 
-DATA = data-io.o data.o data-lexer.o data-syntax.o \
+DATA = data-io.o data-lexer.o data-syntax.o \
 	data-visitor.o array-creator.o symbol.o data-token.o \
-	data-string.o null.o set.o
+	data-string.o null.o set.o data.o 
 DATATEST = $(DATA) data-test.o
 ARRAY = array-test.o data.o symbol.o string.o token.o \
 	data-visitor.o null.o
@@ -25,10 +25,10 @@ clean:
 -include .depend
 
 array-test: $(ARRAY)
-	$(LINK) $(ARRAY) -o $@
+	$(CPP) $(ARRAY) -o $@ $(LINKFLAGS)
 
-data-test: $(DATA)
-	$(LINK) $(DATA) -o $@
+data-test: $(DATATEST) data.a
+	$(CPP) $(DATATEST) -o $@ data.a $(LINKFLAGS) 
 
 data.a : $(DATA)
 	@echo "   [ar] data.a"

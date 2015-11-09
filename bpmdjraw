@@ -17,6 +17,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
+#
+# 4.2.pl4 note by James Hutchinson
+#	Calls to third party badly broken.  None worked.  Adjusted to meet current 
+#	bins requirements. 
+#
 
 songname="$2"
 songlocation=$songname
@@ -41,28 +46,32 @@ extension=${songname##*.}
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if test $DECODER = "1"; then
     echo "Information: decoder is mpg123"
-    mpg123 -r 44100 --stereo -s "$songlocation" >"$rawname" ;
+    echo "mpg123 -r 44100 --stereo -s \"$songlocation\" >\"$rawname\"" ;
+    time mpg123 -r 44100 --stereo -s "$songlocation" >"$rawname" ;
 
 #____________________________________________________________
 # DECODER 2: mpg321 decoder
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 elif test $DECODER = "2"; then
     echo "Information: decoder is mpg321"
-    mpg321 -s "$songlocation" >"$rawname";
+    echo "mpg321 -s \"$songlocation\" >\"$rawname\"";
+    time mpg321 -s "$songlocation" >"$rawname";
     
 #____________________________________________________________
 # DECODER 3: ogg123 decoder
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 elif test $DECODER = "3"; then
     echo "Information: decoder is ogg123"
-    ogg123 --audio-buffer 0 -q -d raw -f "$rawname" "$songlocation";
+    echo "ogg123 --audio-buffer 0 -q -d raw -f \"$rawname\" \"$songlocation\"";
+    time ogg123 --audio-buffer 0 -q -d raw -f "$rawname" "$songlocation";
 
 #____________________________________________________________
 # DECODER 4: mplayer 1.0pre6-3.3.5 decoder
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 elif test $DECODER = "4"; then
     echo "Information: decoder is mplayer 1.0pre6"
-    mplayer "$songlocation" -ao pcm -aofile "$rawname" -af resample=44100 -vo null -quiet;
+    echo "mplayer \"$songlocation\" -ao pcm:no-waveheader:file=\"$rawname\" -af lavrresample=srate=44100 -vo null -quiet";
+    time mplayer "$songlocation" -ao pcm:no-waveheader:file="$rawname" -af lavrresample=srate=44100 -vo null -quiet;
     
 #____________________________________________________________
 # DECODER 5: mplayer 1.0pre7-3.3.5 decoder
@@ -71,9 +80,11 @@ elif test $DECODER = "5"; then
     echo "Information: decoder is mplayer 1.0pre7"
     # the pre7 release is somewhat troubling because it seems unable to 
     # use a resmapling filter of the same freq as the normal data format
-    mplayer "$songlocation" -ao pcm:file="$rawname" -af resample=44100 -vo null -quiet;
+    echo "mplayer \"$songlocation\" -ao pcm:no-waveheader:file=\"$rawname\" -af lavrresample=srate=44100 -vo null -quiet";
+    time mplayer "$songlocation" -ao pcm:no-waveheader:file="$rawname" -af lavrresample=srate=44100 -vo null -quiet;
     (test -f "$rawname") && exit 0;
-    mplayer "$songlocation" -ao pcm:file="$rawname" -vo null -quiet;
+    echo "mplayer \"$songlocation\" -ao pcm:file=\"$rawname\" -vo null -quiet";
+    time mplayer "$songlocation" -ao pcm:file="$rawname" -vo null -quiet;
 fi
 
 (test -f "$rawname") && exit 0;

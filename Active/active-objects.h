@@ -1,6 +1,6 @@
 /****
  Active Objects v4.3
- Copyright (C) 2006-2011 Werner Van Belle
+ Copyright (C) 2006-2012 Werner Van Belle
  http://active.yellowcouch.org/
 
  This program is free software; you can redistribute it and/or modify
@@ -20,7 +20,6 @@
 #ifndef __loaded__active_objects_h__
 #define __loaded__active_objects_h__
 using namespace std;
-#line 1 "active-objects.h++"
 #include <cstdio>
 #include <iostream>
 #include <string>
@@ -374,7 +373,7 @@ protected:
     cerr.flush();
 #endif 
     assert(scheduler);
-    scheduler = false;
+    scheduler = NULL;
     if (aoPool)
       aoPool->sunset(name);
     return Done;

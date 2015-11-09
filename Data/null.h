@@ -1,6 +1,6 @@
 /****
  Hierarchical Data Objects
- Copyright (C) 2005-2011 Werner Van Belle
+ Copyright (C) 2005-2012 Werner Van Belle
  http://flow.yellowcouch.org/data/
 
  This program is free software; you can redistribute it and/or modify

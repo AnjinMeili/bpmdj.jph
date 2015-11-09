@@ -1,6 +1,6 @@
 /****
  Hierarchical Data Objects
- Copyright (C) 2005-2011 Werner Van Belle
+ Copyright (C) 2005-2012 Werner Van Belle
  http://flow.yellowcouch.org/data/
 
  This program is free software; you can redistribute it and/or modify
@@ -17,10 +17,8 @@
  along with this program; if not, write to the Free Software
  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 ****/
-#ifndef __loaded__null_cpp__
-#define __loaded__null_cpp__
 using namespace std;
-#line 1 "null.c++"
+#include <unistd.h>
 #include <iostream>
 #include "null.h"
 //---------------------------------------------------------------
@@ -33,4 +31,3 @@ void Null::crash() const
   assert(0);
   _exit(63);
 }
-#endif // __loaded__null_cpp__

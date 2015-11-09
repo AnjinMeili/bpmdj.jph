@@ -1,10 +1,8 @@
-HEADERS = ${shell ls *.h++ 2>/dev/null | grep -v .*\.L.h++ 2>/dev/null}
-SOURCES = ${shell ls *.c++ 2>/dev/null | grep -v .*\.L.c++ 2>/dev/null}
 AO      = ${shell ls *.ao  2>/dev/null | grep -v .*\.L.c++ 2>/dev/null}
 DO      = ${shell ls *.do  2>/dev/null | grep -v .*\.L.c++ 2>/dev/null}
 
 .PHONY:.sources .cflags
-.sources: version.h authors.cpp $(HEADERS:%.h++=%.h) $(SOURCES:%.c++=%.cpp) $(AO:%.ao=%.h) $(DO:%.do=%.h) \
+.sources: version.h authors.cpp $(AO:%.ao=%.h) $(DO:%.do=%.h) \
 	.cflags
 	@cat .cflags >/tmp/t
 	@grep "#include\ *\"" *.h *.cpp >>/tmp/t
@@ -26,25 +24,13 @@ DO      = ${shell ls *.do  2>/dev/null | grep -v .*\.L.c++ 2>/dev/null}
 	@echo "  [doc] "$@
 	@./Data/doc --noaccess $< $@
 
-# The .h and .cpp sources are generated from corresponding .h++ and .c++ 
-# sources. This allows us to automatically prefix a copyright header, 
-# precompile specific constructs (iterators) and ensure that each header file
-# will be loaded only once
-%.h: %.h++ header.txt ++2--
-	@echo "  [h++] "$@
-	@"./++2--" $< $@
-	   
-%.cpp: %.c++ header.txt ++2--
-	@echo "  [c++] "$@
-	@"./++2--" $< $@
-
 %.o: %.cpp
 	@echo "  [cpp] "$@
 	@$(CPP) -c $< $(CFLAGS) -o $@ $(QT_INCLUDE_PATH)
 
 profile-clock: profile-clock.o
 	@echo " [link] "$@
-	@$(LINK) $(CFLAGS) $< -o $@
+	@$(CPP) $(CFLAGS) $< -o $@ $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)
 
 version.h: profile-clock
 	@echo " [test] clock - 10 seconds"

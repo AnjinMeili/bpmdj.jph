@@ -1,6 +1,6 @@
 /****
  Active Object compiled file
- Copyright (C) 2006-2011 Werner Van Belle
+ Copyright (C) 2006-2012 Werner Van Belle
  Do not modify. Changes might be lost
  --------------------------------------------
  This program is free software; you can redistribute it and/or modify

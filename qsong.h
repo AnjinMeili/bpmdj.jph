@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -23,7 +23,6 @@ using namespace std;
 #include <qtableview.h>
 #include <qcolor.h>
 #include "config.h"
-#include "cluster.h"
 #include "song.h"
 
 #define LIST_TEMPO 0

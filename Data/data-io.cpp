@@ -1,6 +1,6 @@
 /****
  Hierarchical Data Objects
- Copyright (C) 2005-2011 Werner Van Belle
+ Copyright (C) 2005-2012 Werner Van Belle
  http://flow.yellowcouch.org/data/
 
  This program is free software; you can redistribute it and/or modify
@@ -20,11 +20,11 @@
 #ifndef __loaded__data_io_cpp__
 #define __loaded__data_io_cpp__
 using namespace std;
-#line 1 "data-io.c++"
 #include <errno.h>
 #include <string.h>
 #include <sys/mman.h>
 #include <qstring.h>
+#include <unistd.h>
 #include "symbol.h"
 #include "array.h"
 #include "array-iterator.h"
@@ -449,13 +449,17 @@ void DataTexter::read_into(Data& result)
       result = Null();
       return;
     }
+#ifndef NDEBUG
   static bool busy_reading = false;
   assert(!busy_reading);
   busy_reading = true;
+#endif
   yyset_in(text);
   parse_result = Data();
   yyparse();
+#ifndef NDEBUG
   busy_reading=false;
+#endif
   result = parse_result;
 }
 

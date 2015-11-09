@@ -1,6 +1,6 @@
 /****
- BpmDj v4.2-pl2: Free Dj Tools
- Copyright (C) 2001-2011 Werner Van Belle
+ BpmDj v4.2-pl4: Free Dj Tools
+ Copyright (C) 2001-2012 Werner Van Belle
 
  http://bpmdj.yellowcouch.org/
 
@@ -132,7 +132,6 @@ class Config
   singleton_accessors(QColor,color_played_author);
   singleton_accessors(QColor,color_unavailable);
   singleton_accessors(QColor,color_dcolor_col);
-  singleton_accessors(int,color_cluster_depth);
   // singleton_accessors(QStandardItemView*,taglist);
   singleton_accessors(QByteArray,header_state);
   // 2.6

@@ -1,6 +1,6 @@
-VERSION = 4.2-pl2
+VERSION = 4.2-pl4
 DEMOS = index-demo idx2txt
-BIN =  bpmcount bpmplay bpmdj bpmmerge $(DEMOS)
+BIN =  bpmdj bpmmerge bpmplay bpmcount $(DEMOS)
 .EXPORT_ALL_VARIABLES:
 all: .link-targets .ui-forms .rc-files .source-creator .depend .compile 
 
@@ -14,7 +14,6 @@ endif
 CFLAGS=-DLINUX -DSHORT_ONE
 JOBS=1
 include defines
-LINK =  $(CPP) $(LDFLAGS) $(QT_INCLUDE_PATH) $(QT_LIBRARY_PATH) $(QT_LIBS)
 ACDA = Active Data
 
 # Check all the link targets
@@ -55,13 +54,7 @@ ACDA = Active Data
 clean:
 	@for a in $(ACDA); do make -s -C $$a clean; done
 	@echo "[clean] BpmDj"
-	@rm -f *.o *.a $(BIN) sum.tmp
-
-very-clean: clean
-	@for a in $(ACDA); do make -s -f sources -C $$a clean; done
-	@echo "[clean] BpmDj sources"
-	@rm -f *.h *.cpp
-
+	@rm -f *.o *.a ui-*.h $(BIN) sum.tmp
 
 # Varia
 tuuster: 
