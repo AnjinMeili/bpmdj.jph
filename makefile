@@ -56,8 +56,3 @@ clean:
 	@echo "[clean] BpmDj"
 	@rm -f *.o *.a ui-*.h $(BIN) sum.tmp
 
-# Varia
-tuuster: 
-	@scp bpmmerge bpmdj@tuuster:.bin/
-	@scp bpmplay  bpmdj@tuuster:.bin/
-	@scp bpmdj    bpmdj@tuuster:.bin/bpmdj.real

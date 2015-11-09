@@ -40,7 +40,10 @@ Martin Stolpe <martin.stople@uni-ulm.de>
   Cmake files
 Josiah Boothby (josiahb@gmail.com)
   Defines file for slackware
-  
+James Hutchinson <anjin@skyhighatry.com>  
+  Minor fixes to bpmdjraw
+  Merged fixes for QT issues on Ubuntu64
+
 Donations
 ---------
 Sam Liddicott

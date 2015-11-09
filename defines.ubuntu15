@@ -1,0 +1,12 @@
+DISTCC_HOSTS    = localhost/2 cubical/2 tnm/2
+CPP             = g++ -O3 -Wall
+RCC             = rcc
+UIC             = uic
+MOC             = moc
+CFLAGS         += -D COMPILE_ALSA -D COMPILE_JACK
+#LDFLAGS        += -lpthread -lm -lasound -lrt -lfftw3 -ljack
+LDFLAGS        += -lm -lpthread -lasound -lrt -lfftw3 -ljack
+QT_INCLUDE_PATH = -I/usr/include/qt4/ -I/usr/include/qt4/Qt/
+QT_LIBRARY_PATH = 
+QT_LIBS         = -lQtCore -lQtGui
+BITS		= 64
